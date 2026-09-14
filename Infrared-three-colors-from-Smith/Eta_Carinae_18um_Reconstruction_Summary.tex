@@ -26,7 +26,7 @@ The objective was to reconstruct a continuous two-dimensional 18 micron surface-
 Figure 3 maps 18.0, 12.5, and 8.8 microns to red, green, and blue. The 22 published Figure 1e levels span 30--3200 Jy arcsec$^{-2}$. Embedded PDF rasters xref 35 and 69 were extracted, and vector drawings 212--252 supplied the Figure 1e contour segments. Segments were preserved independently to avoid artificial connectors.
 
 \section{Image Preparation}
-The unique intersecting long vector lines in Figure 1e locate the stellar cross. In Figure 3, central dark row and column projections locate the stellar marker at pixel $(344.5,350.5)$. The printed marker was removed with a compact mask and Telea inpainting while retaining the central region in the scientific footprint.
+The unique intersecting long vector lines in Figure 1e locate the stellar cross. The embedded Figure 1e raster has a negative vertical PDF placement transform, so its extracted rows are reversed before raster sampling and side-by-side display; this aligns it with the Figure 1e vector coordinates and Figure 3. In Figure 3, central dark row and column projections locate the stellar marker at pixel $(344.5,350.5)$. The printed marker was removed with a compact mask and Telea inpainting while retaining the central region in the scientific footprint.
 
 The native Figure 3 footprint was formed from HSV saturation/value thresholds, morphological closing, the component nearest the star, dilation, and hole filling. Annotation regions were excluded. The final grid is $676\times680$ pixels and remains unwarped.
 
@@ -53,9 +53,9 @@ Assuming 1 arcsec per regular unlabeled Figure 3 interval gives $CDELT1=+0.02579
 \begin{center}\includegraphics[width=0.72\textwidth]{outputs/diag_tick_residuals.png}\end{center}
 
 \section{Morphology and Flux Calibration}
-Grayscale samples normal to Figure 1e vector segments were grouped into the 22 published levels by contiguous dynamic programming with a monotonicity penalty. Red, luminance, and constrained RGB predictors were compared by leave-one-level-out cross-validation. RMSE values were 291.58, 336.84, and 291.58 Jy arcsec$^{-2}$, respectively; the optimal constrained weights were $[1,0,0]$. The physically appropriate red-only model was retained.
+Grayscale samples normal to Figure 1e vector segments were grouped into the 22 published levels by contiguous dynamic programming with a monotonicity penalty. Red, luminance, and constrained RGB predictors were compared by leave-one-level-out cross-validation. RMSE values were 256.61, 288.64, and 256.61 Jy arcsec$^{-2}$, respectively; the optimal constrained weights were $[1,0,0]$. The physically appropriate red-only model was retained.
 
-Contour red values and assigned flux levels were fitted with a pooled-adjacent-violators isotonic relation and piecewise-linear interpolation. Emission below 30 Jy arcsec$^{-2}$ is unsupported. Values above the highest effective anchor, 2823.43 Jy arcsec$^{-2}$, are held there and flagged as lower bounds. The 3200 Jy arcsec$^{-2}$ contour is therefore unavailable.
+Contour red values and assigned flux levels were fitted with a pooled-adjacent-violators isotonic relation and piecewise-linear interpolation. Emission below 30 Jy arcsec$^{-2}$ is unsupported. Values above the highest effective anchor, 2253.08 Jy arcsec$^{-2}$, are held there and flagged as lower bounds. The 2500 and 3200 Jy arcsec$^{-2}$ contours are therefore unavailable.
 
 The native angular center bounds are X $[-8.8881,8.6301]$ arcsec and Y $[-8.4824,9.1620]$ arcsec. No science map or mask is spatially resampled.
 
@@ -66,14 +66,14 @@ Contours use all published levels supported by the map. Mask-normalized 0.15 arc
 
 For the one-dimensional profile, the major axis is assigned $PA=132^\circ$ east of north, positive southeast. This standard orientation is adopted, not fitted. For pixel offsets $(x,y)$,
 \[
-s=x\sin(PA)+y\cos(PA).
+s=-x\sin(PA)+y\cos(PA),
 \]
-Native pixels are accumulated in 0.1 arcsec bins. With intensity $I_i$, pixel area $A_{\rm pix}$, and bin width $\Delta s$,
+The displayed horizontal offset increases to the right while astronomical east increases to the left, hence the negative $x$ term. Native pixels are accumulated in 0.1 arcsec bins. With intensity $I_i$, pixel area $A_{\rm pix}$, and bin width $\Delta s$,
 \[
 P(s)=\frac{\sum_i I_i A_{\rm pix}}{\Delta s}, \qquad
 \sum P(s)\Delta s=\sum I_iA_{\rm pix}.
 \]
-Thus $P$ has units Jy arcsec$^{-1}$. The integrated profile flux is 92928.68 Jy. It remains provisional because the source map is figure-derived and sub-30 Jy arcsec$^{-2}$ emission is unconstrained.
+Thus $P$ has units Jy arcsec$^{-1}$. The integrated profile flux is 99550.08 Jy. It remains provisional because the source map is figure-derived and sub-30 Jy arcsec$^{-2}$ emission is unconstrained.
 
 \begin{center}\includegraphics[width=0.95\textwidth]{outputs/i18_major_axis_profile.png}\end{center}
 

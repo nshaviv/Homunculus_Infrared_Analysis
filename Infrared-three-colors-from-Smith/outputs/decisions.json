@@ -84,93 +84,93 @@
   },
   "grouping": {
     "method": "Fig1e xref35 normal-offset grayscale contiguous DP with monotonic anchors",
-    "objective": 127.5,
+    "objective": 0.0,
     "status": "provisional: inferred grouping, no independent contour labels",
     "medians": [
       [
-        221.0
-      ],
-      [
-        221.0
-      ],
-      [
-        255.0,
-        221.0
-      ],
-      [
         255.0
       ],
       [
-        255.0
+        246.5
       ],
       [
-        255.0
+        238.0
+      ],
+      [
+        229.5,
+        238.0,
+        238.0
+      ],
+      [
+        238.0
       ],
       [
         221.0
       ],
       [
-        221.0,
-        255.0,
+        221.0
+      ],
+      [
+        221.0
+      ],
+      [
+        221.0
+      ],
+      [
+        221.0
+      ],
+      [
+        221.0
+      ],
+      [
         221.0
       ],
       [
         204.0
       ],
       [
-        204.0
-      ],
-      [
-        221.0,
         204.0,
         204.0
       ],
       [
-        187.0
-      ],
-      [
-        187.0
-      ],
-      [
+        187.0,
         187.0,
         187.0,
         170.0
       ],
       [
-        187.0,
-        136.0,
-        187.0
-      ],
-      [
-        170.0
-      ],
-      [
-        170.0
-      ],
-      [
-        136.0,
+        170.0,
+        153.0,
         153.0
       ],
       [
-        119.0,
-        170.0,
-        119.0,
-        187.0
+        136.0,
+        136.0,
+        136.0,
+        127.5
       ],
       [
         119.0,
-        187.0,
         119.0,
-        170.0
+        110.5,
+        119.0
       ],
       [
-        136.0
-      ],
-      [
-        119.0,
         102.0,
-        170.0,
-        170.0
+        102.0,
+        102.0,
+        85.0
+      ],
+      [
+        76.5,
+        51.0,
+        76.5
+      ],
+      [
+        68.0
+      ],
+      [
+        51.0
       ]
     ],
     "gray_direction": "higher flux is darker in Fig1e",
@@ -180,246 +180,246 @@
         "path_ids": [
           212
         ],
-        "fig1_gray_median": 221.0,
-        "fig1_gray_mad": 17.0,
+        "fig1_gray_median": 255.0,
+        "fig1_gray_mad": 0.0,
         "fig1_samples": 3982,
-        "fig1_gray_effective_nonincreasing": 221.0
+        "fig1_gray_effective_nonincreasing": 255.0
       },
       {
         "level": 60.0,
         "path_ids": [
           213
         ],
-        "fig1_gray_median": 221.0,
-        "fig1_gray_mad": 0.0,
+        "fig1_gray_median": 246.5,
+        "fig1_gray_mad": 8.5,
         "fig1_samples": 2014,
-        "fig1_gray_effective_nonincreasing": 221.0
+        "fig1_gray_effective_nonincreasing": 246.5
       },
       {
         "level": 120.0,
         "path_ids": [
-          214,
-          215
+          214
         ],
         "fig1_gray_median": 238.0,
         "fig1_gray_mad": 0.0,
-        "fig1_samples": 4738,
-        "fig1_gray_effective_nonincreasing": 221.0
+        "fig1_samples": 1940,
+        "fig1_gray_effective_nonincreasing": 238.0
       },
       {
         "level": 200.0,
         "path_ids": [
-          216
+          215,
+          216,
+          217
         ],
-        "fig1_gray_median": 255.0,
-        "fig1_gray_mad": 0.0,
-        "fig1_samples": 6082,
-        "fig1_gray_effective_nonincreasing": 221.0
+        "fig1_gray_median": 238.0,
+        "fig1_gray_mad": 8.5,
+        "fig1_samples": 10942,
+        "fig1_gray_effective_nonincreasing": 238.0
       },
       {
         "level": 250.0,
         "path_ids": [
-          217
+          218
         ],
-        "fig1_gray_median": 255.0,
-        "fig1_gray_mad": 0.0,
-        "fig1_samples": 2062,
-        "fig1_gray_effective_nonincreasing": 221.0
+        "fig1_gray_median": 238.0,
+        "fig1_gray_mad": 17.0,
+        "fig1_samples": 2148,
+        "fig1_gray_effective_nonincreasing": 238.0
       },
       {
         "level": 300.0,
         "path_ids": [
-          218
+          219
         ],
-        "fig1_gray_median": 255.0,
+        "fig1_gray_median": 221.0,
         "fig1_gray_mad": 0.0,
-        "fig1_samples": 2148,
+        "fig1_samples": 8616,
         "fig1_gray_effective_nonincreasing": 221.0
       },
       {
         "level": 375.0,
         "path_ids": [
-          219
+          220
         ],
         "fig1_gray_median": 221.0,
-        "fig1_gray_mad": 34.0,
-        "fig1_samples": 8616,
+        "fig1_gray_mad": 17.0,
+        "fig1_samples": 2902,
         "fig1_gray_effective_nonincreasing": 221.0
       },
       {
         "level": 450.0,
         "path_ids": [
-          220,
-          221,
-          222
+          221
         ],
         "fig1_gray_median": 221.0,
         "fig1_gray_mad": 0.0,
-        "fig1_samples": 5866,
+        "fig1_samples": 1464,
         "fig1_gray_effective_nonincreasing": 221.0
       },
       {
         "level": 520.0,
         "path_ids": [
-          223
+          222
         ],
-        "fig1_gray_median": 204.0,
-        "fig1_gray_mad": 17.0,
-        "fig1_samples": 7860,
-        "fig1_gray_effective_nonincreasing": 204.0
+        "fig1_gray_median": 221.0,
+        "fig1_gray_mad": 0.0,
+        "fig1_samples": 1500,
+        "fig1_gray_effective_nonincreasing": 221.0
       },
       {
         "level": 590.0,
         "path_ids": [
-          224
+          223
         ],
-        "fig1_gray_median": 204.0,
+        "fig1_gray_median": 221.0,
         "fig1_gray_mad": 17.0,
-        "fig1_samples": 1752,
-        "fig1_gray_effective_nonincreasing": 204.0
+        "fig1_samples": 7860,
+        "fig1_gray_effective_nonincreasing": 221.0
       },
       {
         "level": 750.0,
         "path_ids": [
-          225,
-          226,
-          227
+          224
         ],
-        "fig1_gray_median": 204.0,
+        "fig1_gray_median": 221.0,
         "fig1_gray_mad": 17.0,
-        "fig1_samples": 16404,
-        "fig1_gray_effective_nonincreasing": 204.0
+        "fig1_samples": 1752,
+        "fig1_gray_effective_nonincreasing": 221.0
       },
       {
         "level": 870.0,
         "path_ids": [
-          228
+          225
         ],
-        "fig1_gray_median": 187.0,
-        "fig1_gray_mad": 17.0,
-        "fig1_samples": 1548,
-        "fig1_gray_effective_nonincreasing": 187.0
+        "fig1_gray_median": 221.0,
+        "fig1_gray_mad": 0.0,
+        "fig1_samples": 1572,
+        "fig1_gray_effective_nonincreasing": 221.0
       },
       {
         "level": 970.0,
         "path_ids": [
-          229
+          226
         ],
-        "fig1_gray_median": 187.0,
-        "fig1_gray_mad": 17.0,
-        "fig1_samples": 7980,
-        "fig1_gray_effective_nonincreasing": 187.0
+        "fig1_gray_median": 204.0,
+        "fig1_gray_mad": 0.0,
+        "fig1_samples": 7248,
+        "fig1_gray_effective_nonincreasing": 204.0
       },
       {
         "level": 1050.0,
         "path_ids": [
+          227,
+          228
+        ],
+        "fig1_gray_median": 204.0,
+        "fig1_gray_mad": 8.5,
+        "fig1_samples": 9132,
+        "fig1_gray_effective_nonincreasing": 204.0
+      },
+      {
+        "level": 1200.0,
+        "path_ids": [
+          229,
           230,
           231,
           232
         ],
         "fig1_gray_median": 187.0,
         "fig1_gray_mad": 17.0,
-        "fig1_samples": 10068,
-        "fig1_gray_effective_nonincreasing": 187.0
-      },
-      {
-        "level": 1200.0,
-        "path_ids": [
-          233,
-          234,
-          235
-        ],
-        "fig1_gray_median": 187.0,
-        "fig1_gray_mad": 34.0,
-        "fig1_samples": 12972,
+        "fig1_samples": 18048,
         "fig1_gray_effective_nonincreasing": 187.0
       },
       {
         "level": 1350.0,
         "path_ids": [
-          236
+          233,
+          234,
+          235
         ],
-        "fig1_gray_median": 170.0,
-        "fig1_gray_mad": 34.0,
-        "fig1_samples": 5928,
-        "fig1_gray_effective_nonincreasing": 170.0
+        "fig1_gray_median": 153.0,
+        "fig1_gray_mad": 17.0,
+        "fig1_samples": 12972,
+        "fig1_gray_effective_nonincreasing": 153.0
       },
       {
         "level": 1450.0,
         "path_ids": [
-          237
-        ],
-        "fig1_gray_median": 170.0,
-        "fig1_gray_mad": 34.0,
-        "fig1_samples": 5724,
-        "fig1_gray_effective_nonincreasing": 170.0
-      },
-      {
-        "level": 1550.0,
-        "path_ids": [
+          236,
+          237,
           238,
           239
         ],
-        "fig1_gray_median": 144.5,
-        "fig1_gray_mad": 34.0,
-        "fig1_samples": 6228,
-        "fig1_gray_effective_nonincreasing": 144.5
+        "fig1_gray_median": 136.0,
+        "fig1_gray_mad": 17.0,
+        "fig1_samples": 17880,
+        "fig1_gray_effective_nonincreasing": 136.0
       },
       {
-        "level": 1700.0,
+        "level": 1550.0,
         "path_ids": [
           240,
           241,
           242,
           243
         ],
-        "fig1_gray_median": 144.5,
-        "fig1_gray_mad": 34.0,
+        "fig1_gray_median": 119.0,
+        "fig1_gray_mad": 17.0,
         "fig1_samples": 8796,
-        "fig1_gray_effective_nonincreasing": 144.5
+        "fig1_gray_effective_nonincreasing": 119.0
       },
       {
-        "level": 2000.0,
+        "level": 1700.0,
         "path_ids": [
           244,
           245,
           246,
           247
         ],
-        "fig1_gray_median": 144.5,
-        "fig1_gray_mad": 34.0,
+        "fig1_gray_median": 102.0,
+        "fig1_gray_mad": 25.5,
         "fig1_samples": 7884,
-        "fig1_gray_effective_nonincreasing": 144.5
+        "fig1_gray_effective_nonincreasing": 102.0
+      },
+      {
+        "level": 2000.0,
+        "path_ids": [
+          248,
+          249,
+          250
+        ],
+        "fig1_gray_median": 76.5,
+        "fig1_gray_mad": 25.5,
+        "fig1_samples": 4908,
+        "fig1_gray_effective_nonincreasing": 76.5
       },
       {
         "level": 2500.0,
         "path_ids": [
-          248
+          251
         ],
-        "fig1_gray_median": 136.0,
-        "fig1_gray_mad": 51.0,
-        "fig1_samples": 1932,
-        "fig1_gray_effective_nonincreasing": 136.0
+        "fig1_gray_median": 68.0,
+        "fig1_gray_mad": 34.0,
+        "fig1_samples": 1392,
+        "fig1_gray_effective_nonincreasing": 68.0
       },
       {
         "level": 3200.0,
         "path_ids": [
-          249,
-          250,
-          251,
           252
         ],
-        "fig1_gray_median": 144.5,
-        "fig1_gray_mad": 34.0,
-        "fig1_samples": 5112,
-        "fig1_gray_effective_nonincreasing": 136.0
+        "fig1_gray_median": 51.0,
+        "fig1_gray_mad": 17.0,
+        "fig1_samples": 744,
+        "fig1_gray_effective_nonincreasing": 51.0
       }
     ]
   },
   "cv": {
-    "red_rmse": 291.57884437729047,
-    "luminance_rmse": 336.8391306237096,
-    "constrained_rgb_best_rmse": 291.57884437729047,
+    "red_rmse": 256.6096755410005,
+    "luminance_rmse": 288.643033920333,
+    "constrained_rgb_best_rmse": 256.6096755410005,
     "constrained_rgb_weights": [
       1.0,
       0.0,
@@ -463,47 +463,51 @@
       230.0,
       232.0,
       236.0,
-      239.0
+      239.0,
+      241.0,
+      243.0
     ],
     "anchors_flux_effective_pooled": [
       30.0,
       60.0,
       120.0,
-      196.72684720829153,
-      196.72684720829153,
-      196.72684720829153,
-      250.0,
-      415.2334289356278,
-      415.2334289356278,
-      415.2334289356278,
-      450.0,
-      450.0,
+      200.0,
+      214.39797549280766,
+      214.39797549280766,
+      214.39797549280766,
+      381.70444416146694,
+      381.70444416146694,
+      381.70444416146694,
+      381.70444416146694,
       520.0,
-      750.0,
-      750.0,
-      750.0,
+      590.0,
       870.0,
-      982.2153719687628,
-      982.2153719687628,
+      970.0,
       1050.0,
       1050.0,
+      1200.0,
+      1200.0,
       1200.0,
       1200.0,
       1350.0,
+      1350.0,
+      1450.0,
+      1450.0,
+      1450.0,
       1450.0,
       1550.0,
       1550.0,
+      1642.0670897552131,
+      1642.0670897552131,
       1700.0,
       1700.0,
-      1884.134179510426,
-      1884.134179510426,
       2000.0,
       2000.0,
-      2823.429819770617,
-      2823.429819770617
+      2253.076923076923,
+      2253.076923076923
     ],
     "sub30": "unsupported",
-    "highest_supported_effective_anchor": 2823.429819770617,
+    "highest_supported_effective_anchor": 2253.076923076923,
     "upper_extrapolation_policy": "high pixels held at supported anchor and flagged clipped/lower-bound"
   },
   "footprint": {

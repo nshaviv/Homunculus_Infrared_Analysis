@@ -2,7 +2,7 @@
   "position_angle_deg_east_of_north": 132.0,
   "positive_direction": "southeast",
   "bin_width_arcsec": 0.1,
-  "total_integrated_flux_jy": 92928.6793813523,
-  "method": "native-pixel area-conserving projection; no map rotation or interpolation",
+  "total_integrated_flux_jy": 99550.07605389348,
+  "method": "native-pixel area-conserving sky-PA projection; right-positive display X is converted to east before projection; no map rotation or interpolation",
   "status": "provisional figure-derived flux profile"
 }

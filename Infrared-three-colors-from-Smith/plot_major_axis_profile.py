@@ -29,7 +29,9 @@ def major_axis_profile(data, footprint, header, pa_deg=132.0, bin_width_arcsec=0
     y = (np.arange(height) + 1 - header["CRPIX2"]) * header["CDELT2"]
     xx, yy = np.meshgrid(x, y)
     pa = np.deg2rad(pa_deg)
-    along = xx * np.sin(pa) + yy * np.cos(pa)
+    # The displayed horizontal offset increases to the right, whereas R.A.
+    # (east) increases to the left. Convert to east before applying sky PA.
+    along = -xx * np.sin(pa) + yy * np.cos(pa)
     valid = footprint & np.isfinite(data)
     lo = np.floor(along[valid].min() / bin_width_arcsec) * bin_width_arcsec
     hi = np.ceil(along[valid].max() / bin_width_arcsec) * bin_width_arcsec
@@ -65,7 +67,7 @@ def main():
         "positive_direction": "southeast",
         "bin_width_arcsec": args.bin_width,
         "total_integrated_flux_jy": total_flux,
-        "method": "native-pixel area-conserving projection; no map rotation or interpolation",
+        "method": "native-pixel area-conserving sky-PA projection; right-positive display X is converted to east before projection; no map rotation or interpolation",
         "status": "provisional figure-derived flux profile",
     }
     (args.outputs / "i18_major_axis_profile.json").write_text(json.dumps(metadata, indent=2) + "\n")

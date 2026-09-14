@@ -2,7 +2,7 @@ import numpy as np
 from pathlib import Path
 from astropy.io import fits
 import fitz
-from reconstruct_homunculus_map import run, image, detect_fig3_ticks, FIG1_MAJOR_TICKS_PDF, apply_affine
+from reconstruct_homunculus_map import run, image, detect_fig3_ticks, FIG1_MAJOR_TICKS_PDF, apply_affine, fig1_pixel, fig1_raster_pixel
 from plot_major_axis_profile import major_axis_profile
 
 def test_native_tick_calibrated_product(tmp_path, monkeypatch):
@@ -25,3 +25,9 @@ def test_native_tick_calibrated_product(tmp_path, monkeypatch):
  pixel_area=abs(h['CDELT1']*h['CDELT2'])
  assert len(p)==len(profile)==len(edges)-1 and np.all(profile>=0)
  assert np.isclose(np.sum(profile*np.diff(edges)),np.sum(z['i18_map'][m])*pixel_area)
+
+def test_fig1_extracted_raster_rows_are_reversed_from_pdf_page_coordinates():
+ p=np.array([[173.3704071,503.3273926],[315.2308044,645.1878052]])
+ page=fig1_pixel(p);raster=fig1_raster_pixel(p)
+ assert np.allclose(page[:,0],raster[:,0])
+ assert np.allclose(page[:,1]+raster[:,1],220)

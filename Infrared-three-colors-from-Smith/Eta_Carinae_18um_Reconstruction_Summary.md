@@ -22,7 +22,7 @@ The goal was to reconstruct a continuous two-dimensional 18 micron surface-brigh
 
 ### 3.1 Stellar reference
 
-The stellar cross in Figure 1e was identified programmatically from the unique intersecting long horizontal and vertical vector segments in drawing 252. The Figure 3 stellar marker was detected from the maximum dark row and column projections in a restricted central region. The resulting Figure 3 reference position is pixel `(344.5, 350.5)`.
+The stellar cross in Figure 1e was identified programmatically from the unique intersecting long horizontal and vertical vector segments in drawing 252. The embedded Figure 1e raster has a negative vertical PDF placement transform, so its extracted rows are reversed before raster sampling and side-by-side display; this aligns it with the Figure 1e vector coordinates and Figure 3. The Figure 3 stellar marker was detected from the maximum dark row and column projections in a restricted central region. The resulting Figure 3 reference position is pixel `(344.5, 350.5)`.
 
 ### 3.2 Marker removal
 
@@ -86,9 +86,9 @@ Three predictors were compared by leave-one-contour-level-out cross-validation:
 
 | Predictor | RMSE (Jy arcsec^-2) |
 |---|---:|
-| Red channel | 291.58 |
-| Luminance | 336.84 |
-| Best constrained RGB mixture | 291.58 |
+| Red channel | 256.61 |
+| Luminance | 288.64 |
+| Best constrained RGB mixture | 256.61 |
 
 The constrained RGB optimum was exactly `[1, 0, 0]`, so the red-only model was retained. This is also physically consistent with the published Figure 3 channel assignment.
 
@@ -98,8 +98,8 @@ Red-channel values sampled along the transferred contours were paired with their
 
 - Emission below 30 Jy arcsec^-2 is unsupported by the contour data.
 - High signals are held at the highest supported effective anchor and flagged as clipped/lower-bound pixels.
-- The highest supported effective anchor and map maximum are approximately 2823.43 Jy arcsec^-2.
-- Consequently, the published 3200 Jy arcsec^-2 contour is absent from both the scientific map and display-smoothed plot.
+- The highest supported effective anchor and map maximum are approximately 2253.08 Jy arcsec^-2.
+- Consequently, the published 2500 and 3200 Jy arcsec^-2 contours are absent from both the scientific map and display-smoothed plot.
 
 The final science map remains on the native 676 x 680 Figure 3 raster. There is no spatial warp or interpolation of the map itself. Its angular center bounds are X `[-8.8881, 8.6301]` arcsec and Y `[-8.4824, 9.1620]` arcsec.
 
@@ -117,9 +117,9 @@ The Homunculus major axis was taken to have position angle `PA = 132 degrees` ea
 
 For each native pixel at offsets `(x, y)`, its coordinate along the major axis is
 
-`s = x sin(PA) + y cos(PA)`.
+`s = -x sin(PA) + y cos(PA)`.
 
-Pixels are accumulated in 0.1 arcsec bins without rotating or interpolating the image. If `I_i` is in Jy arcsec^-2 and the native pixel area is `A_pix`, the profile in a bin of width `Delta s` is
+The displayed horizontal offset increases to the right while astronomical east increases to the left, hence the negative `x` term. Pixels are accumulated in 0.1 arcsec bins without rotating or interpolating the image. If `I_i` is in Jy arcsec^-2 and the native pixel area is `A_pix`, the profile in a bin of width `Delta s` is
 
 `P(s) = sum_i(I_i A_pix) / Delta s`,
 
@@ -127,7 +127,7 @@ which has units of Jy arcsec^-1. This area-conserving construction satisfies
 
 `sum P(s) Delta s = sum I_i A_pix`.
 
-The resulting integrated profile flux is `92928.68 Jy`. Because the input map is figure-derived and its low-level background below the 30 Jy arcsec^-2 contour is unsupported, this total should also be treated as provisional.
+The resulting integrated profile flux is `99550.08 Jy`. Because the input map is figure-derived and its low-level background below the 30 Jy arcsec^-2 contour is unsupported, this total should also be treated as provisional.
 
 ![Minor-axis-integrated flux along the major axis](outputs/i18_major_axis_profile.png)
 

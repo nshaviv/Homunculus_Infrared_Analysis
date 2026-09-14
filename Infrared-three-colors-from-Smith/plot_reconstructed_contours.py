@@ -81,6 +81,31 @@ def draw_reconstruction(
     return contours, shown_levels
 
 
+def draw_major_axis(ax: plt.Axes, footprint: np.ndarray, header: fits.Header, pa_deg: float = 132.0):
+    """Overlay the signed major-axis coordinate used by the 1-D profile."""
+    x, y = angular_axes(footprint.shape, header)
+    xx, yy = np.meshgrid(x, y)
+    pa = np.deg2rad(pa_deg)
+    # The right-positive display X coordinate is opposite to astronomical east.
+    along = -xx * np.sin(pa) + yy * np.cos(pa)
+    lo = np.floor(along[footprint].min())
+    hi = np.ceil(along[footprint].max())
+    distance = np.arange(lo, hi + 1)
+    axis_x = -distance * np.sin(pa)
+    axis_y = distance * np.cos(pa)
+    ax.plot(axis_x, axis_y, "w--", linewidth=1.4, zorder=5)
+    ax.plot(axis_x, axis_y, "k--", linewidth=0.55, zorder=6)
+    ax.scatter(axis_x, axis_y, s=12, facecolor="white", edgecolor="black", linewidth=0.45, zorder=7)
+    for value, px, py in zip(distance, axis_x, axis_y):
+        if value and value % 2 == 0:
+            ax.annotate(f"{value:g}", (px, py), xytext=(4, 3), textcoords="offset points", fontsize=7, color="white", zorder=8)
+    ax.text(
+        0.02, 0.02, f"Major axis: PA = {pa_deg:g} deg\nSigned distance s (arcsec; southeast positive)",
+        transform=ax.transAxes, fontsize=8, va="bottom", color="black",
+        bbox={"facecolor": "white", "alpha": 0.82, "edgecolor": "0.4"}, zorder=9,
+    )
+
+
 def fig1_angular_extent(shape: tuple[int, int], header: fits.Header) -> list[float]:
     """Extent at pixel edges on the same Fig1e-derived OFFSET grid as the FITS."""
     x, y = angular_axes(shape, header)
@@ -89,9 +114,12 @@ def fig1_angular_extent(shape: tuple[int, int], header: fits.Header) -> list[flo
 
 
 def render_fig1e(pdf_path: Path, dpi_scale: float = 4.0) -> np.ndarray:
-    """Exact embedded PBOX raster, excluding page labels and panel margins."""
+    """Return the embedded Figure 1e raster in the PDF vector orientation."""
     doc = pymupdf.open(pdf_path)
-    return np.asarray(Image.open(BytesIO(doc.extract_image(FIG1E_XREF)["image"])).convert("RGB"))
+    image = np.asarray(Image.open(BytesIO(doc.extract_image(FIG1E_XREF)["image"])).convert("RGB"))
+    # The PDF image matrix has a negative vertical scale; extracted rows are
+    # consequently reversed relative to the Figure 1e vector contours.
+    return np.flipud(image)
 
 
 def main() -> None:
@@ -111,6 +139,14 @@ def main() -> None:
     _, shown_levels = draw_reconstruction(ax, display_data, footprint, header, args.smooth_fwhm)
     fig.savefig(args.outputs / "i18_contours_angular.png", dpi=240)
     fig.savefig(args.outputs / "i18_contours_angular.pdf")
+    plt.close(fig)
+
+    fig, ax = plt.subplots(figsize=(7.2, 7.2), constrained_layout=True)
+    draw_reconstruction(ax, display_data, footprint, header, args.smooth_fwhm)
+    draw_major_axis(ax, footprint, header)
+    ax.set_title("Reconstructed 18 um map with major-axis distance")
+    fig.savefig(args.outputs / "i18_contours_major_axis.png", dpi=240)
+    fig.savefig(args.outputs / "i18_contours_major_axis.pdf")
     plt.close(fig)
 
     original = render_fig1e(args.pdf)

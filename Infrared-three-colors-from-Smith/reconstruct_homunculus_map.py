@@ -31,6 +31,13 @@ def segments(d): return np.asarray([[[a.x,a.y],[b.x,b.y]] for it in d["items"] i
 def fig1_pixel(p, shape=(221,221)):
  h,w=shape; x0,y0,x1,y1=PBOX; p=np.asarray(p,float)
  return np.stack(((p[...,0]-x0)/(x1-x0)*(w-1),(p[...,1]-y0)/(y1-y0)*(h-1)),axis=-1)
+def fig1_raster_pixel(p, shape=(221,221)):
+ """Map PDF page coordinates to extracted xref35 raster pixels.
+
+ The PDF places xref35 with a negative vertical scale, so its extracted rows
+ run opposite to the page-vector Y direction used by the contour drawings.
+ """
+ q=fig1_pixel(p,shape);q[...,1]=shape[0]-1-q[...,1];return q
 def detect_fig1_cross(drawing):
  s=segments(drawing); hs=[q for q in s if abs(q[0,1]-q[1,1])<.02 and abs(q[1,0]-q[0,0])>10]; vs=[q for q in s if abs(q[0,0]-q[1,0])<.02 and abs(q[1,1]-q[0,1])>10]
  if len(hs)!=1 or len(vs)!=1: raise RuntimeError("Could not uniquely detect Fig1e drawing-252 cross")
@@ -132,7 +139,7 @@ def registration_fit(fig1gray, rgb, srcstar, dststar, ann):
 def fig1_stats(gray,segs):
  h,w=gray.shape; out=[]
  for aa,bb in segs:
-  a=fig1_pixel(aa,(h,w));b=fig1_pixel(bb,(h,w)); d=b-a;L=np.hypot(*d)
+  a=fig1_raster_pixel(aa,(h,w));b=fig1_raster_pixel(bb,(h,w)); d=b-a;L=np.hypot(*d)
   if L<.2:continue
   n=np.array([-d[1],d[0]])/L
   for t in np.linspace(.05,.95,max(3,int(L))):
@@ -224,7 +231,7 @@ def run(out="outputs"):
  fig.savefig(out/"diag_registration_before_after.png",dpi=180);plt.close(fig)
  fig,ax=plt.subplots(figsize=(7,4));[ax.plot(q['centers'],q['residuals'],'o-',label=name) for name,q in ticks['per_edge'].items()];ax.axhline(0,color='k');ax.set(xlabel='tick centre (pixel)',ylabel='fit residual (pixel)',title='Direct Fig3 border-tick residuals');ax.legend();fig.savefig(out/'diag_tick_residuals.png',dpi=180);plt.close(fig)
  fig,ax=plt.subplots(figsize=(7,7));ax.imshow(fluxo,cmap="inferno",extent=[x[0]-sxang/2,x[-1]+sxang/2,y[-1]-syang/2,y[0]+syang/2],origin="upper",vmin=0,vmax=3200);ax.set(xlabel="R.A. offset (arcsec)",ylabel="Declination offset (arcsec)",aspect="equal");fig.savefig(out/"diag_reconstructed_contours_overlay.png",dpi=160);plt.close(fig)
- fig,ax=plt.subplots();ax.imshow(gray,cmap="gray");[ax.plot(*fig1_pixel(np.array([a,b])).T,color=plt.cm.turbo(j/21),lw=.5) for j,g in enumerate(groups) for i in g for a,b in [raw[i][1][0]] if len(raw[i][1])];ax.axis("off");fig.savefig(out/"diag_fig1e_grouping.png",dpi=180);plt.close(fig)
+ fig,ax=plt.subplots();ax.imshow(gray,cmap="gray");[ax.plot(*fig1_raster_pixel(np.array([a,b]),gray.shape).T,color=plt.cm.turbo(j/21),lw=.5) for j,g in enumerate(groups) for i in g for a,b in [raw[i][1][0]] if len(raw[i][1])];ax.axis("off");fig.savefig(out/"diag_fig1e_grouping.png",dpi=180);plt.close(fig)
  fig,ax=plt.subplots();ax.scatter(scal,LEVELS[gid],s=12,alpha=.5);ax.plot(xk,yk,"k-");ax.set(xlabel="Fig3 red",ylabel="Jy arcsec-2");fig.savefig(out/"diag_calibration_robust_spreads.png",dpi=160);plt.close(fig)
  fig,ax=plt.subplots();ax.bar(["red","luminance","RGB constrained"],[cr,cl,cb]);ax.set_ylabel("leave-one-level-out RMSE");fig.savefig(out/"diag_cv_model_comparison.png",dpi=160);plt.close(fig)
  fig,ax=plt.subplots(figsize=(7,7));ax.imshow(clean);ax.contour(fp,[.5],colors="cyan");ax.axis("off");fig.savefig(out/"diag_footprint_overlay.png",dpi=160);plt.close(fig)
