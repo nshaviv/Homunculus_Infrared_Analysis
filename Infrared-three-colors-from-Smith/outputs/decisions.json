@@ -1,0 +1,814 @@
+{
+  "status": "provisional figure-derived normalized morphology product",
+  "hashes": {
+    "pdf": "653ad1c4ae25af6e3d2131cfd459988b8f05090c73d51c9f258ce34583b243df",
+    "instructions": "1e80fc09c177b7c8866c4c816434961c2b5bf360b1e2e4c8573d13da9a9069aa"
+  },
+  "registration": {
+    "authority": "Fig3 border ticks measured from raster; 1 arcsec per regular tick is inferred",
+    "parameters": {
+      "scale_x": 2.3645268342029833,
+      "scale_y": 2.333789743549624,
+      "rotation_deg": 0.0
+    },
+    "matrix": [
+      [
+        2.3645268342029833,
+        -0.0,
+        60.73220103594167
+      ],
+      [
+        0.0,
+        2.333789743549624,
+        117.14470260243067
+      ]
+    ],
+    "inverse_matrix": [
+      [
+        0.4229175941397478,
+        0.0,
+        -25.68471634893195
+      ],
+      [
+        0.0,
+        0.42848761451793427,
+        -50.19505417152836
+      ]
+    ],
+    "fig1_star_pixel": [
+      120.01039483221118,
+      99.9898547170076
+    ],
+    "fig3_star_xy": [
+      344.5,
+      350.5
+    ],
+    "fig1_arcsec_per_pixel": 0.06100472920787823,
+    "fig3_arcsec_per_pixel_x": 0.025799973307742665,
+    "fig3_arcsec_per_pixel_y": 0.02613977089259629,
+    "axis_scale_ratio": {
+      "x": 2.3645268342029833,
+      "y": 2.333789743549624
+    },
+    "validation_only": "contour/morphology overlay; no optimizer objective or astrometric claim",
+    "extents": {
+      "definition": "prespecified Fig3 red >=55th percentile within footprint",
+      "old_13arcsec": {
+        "x": [
+          -5.113970588235294,
+          4.311029411764705
+        ],
+        "y": [
+          -4.7019230769230775,
+          4.7019230769230775
+        ]
+      },
+      "direct_ticks": {
+        "x": [
+          -6.901492859821163,
+          5.817893980895971
+        ],
+        "y": [
+          -6.391173983239793,
+          6.391173983239793
+        ]
+      },
+      "threshold_sensitivity": {
+        "red_percentiles": [
+          45,
+          55,
+          65
+        ]
+      }
+    }
+  },
+  "grouping": {
+    "method": "Fig1e xref35 normal-offset grayscale contiguous DP with monotonic anchors",
+    "objective": 127.5,
+    "status": "provisional: inferred grouping, no independent contour labels",
+    "medians": [
+      [
+        221.0
+      ],
+      [
+        221.0
+      ],
+      [
+        255.0,
+        221.0
+      ],
+      [
+        255.0
+      ],
+      [
+        255.0
+      ],
+      [
+        255.0
+      ],
+      [
+        221.0
+      ],
+      [
+        221.0,
+        255.0,
+        221.0
+      ],
+      [
+        204.0
+      ],
+      [
+        204.0
+      ],
+      [
+        221.0,
+        204.0,
+        204.0
+      ],
+      [
+        187.0
+      ],
+      [
+        187.0
+      ],
+      [
+        187.0,
+        187.0,
+        170.0
+      ],
+      [
+        187.0,
+        136.0,
+        187.0
+      ],
+      [
+        170.0
+      ],
+      [
+        170.0
+      ],
+      [
+        136.0,
+        153.0
+      ],
+      [
+        119.0,
+        170.0,
+        119.0,
+        187.0
+      ],
+      [
+        119.0,
+        187.0,
+        119.0,
+        170.0
+      ],
+      [
+        136.0
+      ],
+      [
+        119.0,
+        102.0,
+        170.0,
+        170.0
+      ]
+    ],
+    "gray_direction": "higher flux is darker in Fig1e",
+    "groups": [
+      {
+        "level": 30.0,
+        "path_ids": [
+          212
+        ],
+        "fig1_gray_median": 221.0,
+        "fig1_gray_mad": 17.0,
+        "fig1_samples": 3982,
+        "fig1_gray_effective_nonincreasing": 221.0
+      },
+      {
+        "level": 60.0,
+        "path_ids": [
+          213
+        ],
+        "fig1_gray_median": 221.0,
+        "fig1_gray_mad": 0.0,
+        "fig1_samples": 2014,
+        "fig1_gray_effective_nonincreasing": 221.0
+      },
+      {
+        "level": 120.0,
+        "path_ids": [
+          214,
+          215
+        ],
+        "fig1_gray_median": 238.0,
+        "fig1_gray_mad": 0.0,
+        "fig1_samples": 4738,
+        "fig1_gray_effective_nonincreasing": 221.0
+      },
+      {
+        "level": 200.0,
+        "path_ids": [
+          216
+        ],
+        "fig1_gray_median": 255.0,
+        "fig1_gray_mad": 0.0,
+        "fig1_samples": 6082,
+        "fig1_gray_effective_nonincreasing": 221.0
+      },
+      {
+        "level": 250.0,
+        "path_ids": [
+          217
+        ],
+        "fig1_gray_median": 255.0,
+        "fig1_gray_mad": 0.0,
+        "fig1_samples": 2062,
+        "fig1_gray_effective_nonincreasing": 221.0
+      },
+      {
+        "level": 300.0,
+        "path_ids": [
+          218
+        ],
+        "fig1_gray_median": 255.0,
+        "fig1_gray_mad": 0.0,
+        "fig1_samples": 2148,
+        "fig1_gray_effective_nonincreasing": 221.0
+      },
+      {
+        "level": 375.0,
+        "path_ids": [
+          219
+        ],
+        "fig1_gray_median": 221.0,
+        "fig1_gray_mad": 34.0,
+        "fig1_samples": 8616,
+        "fig1_gray_effective_nonincreasing": 221.0
+      },
+      {
+        "level": 450.0,
+        "path_ids": [
+          220,
+          221,
+          222
+        ],
+        "fig1_gray_median": 221.0,
+        "fig1_gray_mad": 0.0,
+        "fig1_samples": 5866,
+        "fig1_gray_effective_nonincreasing": 221.0
+      },
+      {
+        "level": 520.0,
+        "path_ids": [
+          223
+        ],
+        "fig1_gray_median": 204.0,
+        "fig1_gray_mad": 17.0,
+        "fig1_samples": 7860,
+        "fig1_gray_effective_nonincreasing": 204.0
+      },
+      {
+        "level": 590.0,
+        "path_ids": [
+          224
+        ],
+        "fig1_gray_median": 204.0,
+        "fig1_gray_mad": 17.0,
+        "fig1_samples": 1752,
+        "fig1_gray_effective_nonincreasing": 204.0
+      },
+      {
+        "level": 750.0,
+        "path_ids": [
+          225,
+          226,
+          227
+        ],
+        "fig1_gray_median": 204.0,
+        "fig1_gray_mad": 17.0,
+        "fig1_samples": 16404,
+        "fig1_gray_effective_nonincreasing": 204.0
+      },
+      {
+        "level": 870.0,
+        "path_ids": [
+          228
+        ],
+        "fig1_gray_median": 187.0,
+        "fig1_gray_mad": 17.0,
+        "fig1_samples": 1548,
+        "fig1_gray_effective_nonincreasing": 187.0
+      },
+      {
+        "level": 970.0,
+        "path_ids": [
+          229
+        ],
+        "fig1_gray_median": 187.0,
+        "fig1_gray_mad": 17.0,
+        "fig1_samples": 7980,
+        "fig1_gray_effective_nonincreasing": 187.0
+      },
+      {
+        "level": 1050.0,
+        "path_ids": [
+          230,
+          231,
+          232
+        ],
+        "fig1_gray_median": 187.0,
+        "fig1_gray_mad": 17.0,
+        "fig1_samples": 10068,
+        "fig1_gray_effective_nonincreasing": 187.0
+      },
+      {
+        "level": 1200.0,
+        "path_ids": [
+          233,
+          234,
+          235
+        ],
+        "fig1_gray_median": 187.0,
+        "fig1_gray_mad": 34.0,
+        "fig1_samples": 12972,
+        "fig1_gray_effective_nonincreasing": 187.0
+      },
+      {
+        "level": 1350.0,
+        "path_ids": [
+          236
+        ],
+        "fig1_gray_median": 170.0,
+        "fig1_gray_mad": 34.0,
+        "fig1_samples": 5928,
+        "fig1_gray_effective_nonincreasing": 170.0
+      },
+      {
+        "level": 1450.0,
+        "path_ids": [
+          237
+        ],
+        "fig1_gray_median": 170.0,
+        "fig1_gray_mad": 34.0,
+        "fig1_samples": 5724,
+        "fig1_gray_effective_nonincreasing": 170.0
+      },
+      {
+        "level": 1550.0,
+        "path_ids": [
+          238,
+          239
+        ],
+        "fig1_gray_median": 144.5,
+        "fig1_gray_mad": 34.0,
+        "fig1_samples": 6228,
+        "fig1_gray_effective_nonincreasing": 144.5
+      },
+      {
+        "level": 1700.0,
+        "path_ids": [
+          240,
+          241,
+          242,
+          243
+        ],
+        "fig1_gray_median": 144.5,
+        "fig1_gray_mad": 34.0,
+        "fig1_samples": 8796,
+        "fig1_gray_effective_nonincreasing": 144.5
+      },
+      {
+        "level": 2000.0,
+        "path_ids": [
+          244,
+          245,
+          246,
+          247
+        ],
+        "fig1_gray_median": 144.5,
+        "fig1_gray_mad": 34.0,
+        "fig1_samples": 7884,
+        "fig1_gray_effective_nonincreasing": 144.5
+      },
+      {
+        "level": 2500.0,
+        "path_ids": [
+          248
+        ],
+        "fig1_gray_median": 136.0,
+        "fig1_gray_mad": 51.0,
+        "fig1_samples": 1932,
+        "fig1_gray_effective_nonincreasing": 136.0
+      },
+      {
+        "level": 3200.0,
+        "path_ids": [
+          249,
+          250,
+          251,
+          252
+        ],
+        "fig1_gray_median": 144.5,
+        "fig1_gray_mad": 34.0,
+        "fig1_samples": 5112,
+        "fig1_gray_effective_nonincreasing": 136.0
+      }
+    ]
+  },
+  "cv": {
+    "red_rmse": 291.57884437729047,
+    "luminance_rmse": 336.8391306237096,
+    "constrained_rgb_best_rmse": 291.57884437729047,
+    "constrained_rgb_weights": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "selection": "red_only"
+  },
+  "calibration": {
+    "anchors_signal": [
+      13.0,
+      29.0,
+      32.0,
+      42.0,
+      56.0,
+      57.0,
+      59.0,
+      61.0,
+      64.0,
+      65.0,
+      70.0,
+      76.0,
+      85.0,
+      88.0,
+      101.0,
+      111.0,
+      126.0,
+      128.0,
+      135.0,
+      144.0,
+      150.0,
+      163.0,
+      183.0,
+      195.0,
+      200.0,
+      208.0,
+      212.0,
+      217.0,
+      220.0,
+      223.0,
+      226.0,
+      230.0,
+      232.0,
+      236.0,
+      239.0
+    ],
+    "anchors_flux_effective_pooled": [
+      30.0,
+      60.0,
+      120.0,
+      196.72684720829153,
+      196.72684720829153,
+      196.72684720829153,
+      250.0,
+      415.2334289356278,
+      415.2334289356278,
+      415.2334289356278,
+      450.0,
+      450.0,
+      520.0,
+      750.0,
+      750.0,
+      750.0,
+      870.0,
+      982.2153719687628,
+      982.2153719687628,
+      1050.0,
+      1050.0,
+      1200.0,
+      1200.0,
+      1350.0,
+      1450.0,
+      1550.0,
+      1550.0,
+      1700.0,
+      1700.0,
+      1884.134179510426,
+      1884.134179510426,
+      2000.0,
+      2000.0,
+      2823.429819770617,
+      2823.429819770617
+    ],
+    "sub30": "unsupported",
+    "highest_supported_effective_anchor": 2823.429819770617,
+    "upper_extrapolation_policy": "high pixels held at supported anchor and flagged clipped/lower-bound"
+  },
+  "footprint": {
+    "method": "native Fig3 RGB-composite saturation morphology; no spatial resampling",
+    "area_fig3_pixels": 230455,
+    "excluded_two_pixel_border_count": 0
+  },
+  "tick_calibration": {
+    "fig1": {
+      "major_tick_pdf_positions": [
+        166.1955084,
+        187.3355084,
+        208.4755084,
+        229.6155084,
+        250.7555084,
+        271.8955084,
+        293.0355084,
+        314.1755084
+      ],
+      "arcsec_per_major_interval": 2.0,
+      "pdf_units_per_major_interval": 21.14,
+      "arcsec_per_pdf": 0.0946073793755913,
+      "provenance": "Measured Fig1e labeled major-vector-tick spacing; zero coincides with detected stellar cross."
+    },
+    "fig3": {
+      "per_edge": {
+        "top": {
+          "edge": "top",
+          "centers": [
+            43.0,
+            81.0,
+            120.0,
+            159.0,
+            197.0,
+            236.0,
+            275.0,
+            314.0,
+            353.0,
+            393.0,
+            430.0,
+            469.0,
+            508.0,
+            546.0,
+            585.0,
+            624.0
+          ],
+          "strengths": [
+            540.0,
+            552.0,
+            590.0,
+            596.0,
+            548.0,
+            540.0,
+            564.0,
+            568.0,
+            540.0,
+            540.0,
+            604.0,
+            606.0,
+            558.0,
+            522.0,
+            552.0,
+            590.0
+          ],
+          "spacing_px": 38.766176470588235,
+          "rms_px": 0.49044172766526495,
+          "residuals": [
+            0.43382352941173963,
+            -0.33235294117649516,
+            -0.09852941176472996,
+            0.13529411764704946,
+            -0.6308823529411995,
+            -0.3970588235294201,
+            -0.16323529411766913,
+            0.07058823529405345,
+            0.30441176470583287,
+            1.5382352941176123,
+            -0.2279411764706083,
+            0.005882352941171121,
+            0.23970588235295054,
+            -0.52647058823527,
+            -0.2926470588236043,
+            -0.05882352941182489
+          ],
+          "quality": true
+        },
+        "bottom": {
+          "edge": "bottom",
+          "centers": [
+            43.0,
+            81.0,
+            120.0,
+            159.0,
+            197.0,
+            236.0,
+            275.0,
+            314.0,
+            353.0,
+            391.0,
+            430.0,
+            469.0,
+            508.0,
+            546.0,
+            585.0,
+            624.0
+          ],
+          "strengths": [
+            342.0,
+            340.0,
+            403.0,
+            359.0,
+            347.0,
+            340.0,
+            367.0,
+            379.0,
+            325.0,
+            330.0,
+            406.0,
+            411.0,
+            361.0,
+            315.0,
+            340.0,
+            403.0
+          ],
+          "spacing_px": 38.757352941176464,
+          "rms_px": 0.29781681104527535,
+          "residuals": [
+            0.49264705882359294,
+            -0.26470588235287096,
+            -0.02205882352933486,
+            0.22058823529420124,
+            -0.5367647058822627,
+            -0.29411764705872656,
+            -0.05147058823519046,
+            0.19117647058834564,
+            0.43382352941188174,
+            -0.32352941176458216,
+            -0.08088235294104607,
+            0.16176470588249003,
+            0.40441176470602613,
+            -0.3529411764704946,
+            -0.11029411764684482,
+            0.1323529411765776
+          ],
+          "quality": true
+        },
+        "left": {
+          "edge": "left",
+          "centers": [
+            39.0,
+            78.0,
+            115.0,
+            154.0,
+            192.0,
+            230.0,
+            269.0,
+            307.0,
+            345.0,
+            383.0,
+            422.0,
+            460.0,
+            498.0,
+            536.0,
+            575.0,
+            613.0
+          ],
+          "strengths": [
+            576.0,
+            536.0,
+            512.0,
+            569.0,
+            596.0,
+            522.0,
+            520.0,
+            612.0,
+            533.0,
+            547.0,
+            517.0,
+            573.0,
+            587.0,
+            525.0,
+            596.0,
+            596.0
+          ],
+          "spacing_px": 38.25588235294117,
+          "rms_px": 0.3296053790252108,
+          "residuals": [
+            -0.08088235294115975,
+            0.6632352941176691,
+            -0.592647058823502,
+            0.1514705882353269,
+            -0.10441176470584423,
+            -0.36029411764701536,
+            0.3838235294118135,
+            0.1279411764706424,
+            -0.12794117647052872,
+            -0.38382352941169984,
+            0.36029411764712904,
+            0.10441176470595792,
+            -0.1514705882352132,
+            -0.40735294117644116,
+            0.3367647058823877,
+            0.0808823529412166
+          ],
+          "quality": true
+        },
+        "right": {
+          "edge": "right",
+          "centers": [
+            39.0,
+            78.0,
+            116.0,
+            154.0,
+            192.0,
+            230.0,
+            269.0,
+            307.0,
+            345.0,
+            383.0,
+            422.0,
+            460.0,
+            498.0,
+            537.0,
+            575.0,
+            613.0
+          ],
+          "strengths": [
+            97.0,
+            62.0,
+            61.0,
+            136.0,
+            118.0,
+            76.0,
+            70.0,
+            103.0,
+            93.0,
+            62.0,
+            81.0,
+            95.0,
+            104.0,
+            107.0,
+            111.0,
+            118.0
+          ],
+          "spacing_px": 38.25588235294118,
+          "rms_px": 0.3049831239304137,
+          "residuals": [
+            -0.20588235294124502,
+            0.5382352941175839,
+            0.28235294117639853,
+            0.0264705882352132,
+            -0.22941176470595792,
+            -0.48529411764712904,
+            0.258823529411643,
+            0.0029411764704718735,
+            -0.25294117647069925,
+            -0.5088235294118704,
+            0.2352941176469585,
+            -0.02058823529421261,
+            -0.27647058823538373,
+            0.46764705882344515,
+            0.21176470588227403,
+            -0.04411764705889709
+          ],
+          "quality": true
+        }
+      },
+      "x_px_per_tick": 38.759730022662325,
+      "y_px_per_tick": 38.25588235294118,
+      "x_uncertainty_px": 0.40572647262439454,
+      "y_uncertainty_px": 0.31753299967460624,
+      "arcsec_per_pixel_x": 0.025799973307742665,
+      "arcsec_per_pixel_y": 0.02613977089259629,
+      "assumed_arcsec_per_regular_tick": 1.0,
+      "angular_assignment": "inferred from publication tick hierarchy and field-size plausibility; Fig3 ticks are unlabeled",
+      "alternatives": "0.5 or 2 arcsec/tick imply approximately 8.8 or 35.2 arcsec fields; neither is adopted",
+      "method": "image-derived border-strip comb search, local peak refinement, linear regular-sequence fits"
+    }
+  },
+  "normalization": {
+    "weight_sum": 1.0,
+    "shape": [
+      676,
+      680
+    ],
+    "fig1_arcsec_per_pixel": 0.06100472920787823,
+    "fig3_arcsec_per_pixel_x": 0.025799973307742665,
+    "fig3_arcsec_per_pixel_y": 0.02613977089259629,
+    "angular_bounds": {
+      "x": [
+        -8.888090804517349,
+        8.63009107143992
+      ],
+      "y": [
+        -8.482355654647497,
+        9.161989697855
+      ]
+    },
+    "spatial_interpolation": "none; native Fig3 raster"
+  },
+  "visualization": {
+    "decision": "Display-only smoothing; side-by-side clips to exact Fig1e xref35/PBOX bounds while standalone shows the full native grid."
+  },
+  "limitations": [
+    "Figure-derived morphology is not archival photometry.",
+    "Fig3 angular interval is inferred from unlabeled ticks; no astrometric accuracy claim."
+  ]
+}
