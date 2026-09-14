@@ -1,0 +1,17 @@
+total_mass_msun = 1.0
+ejection_epoch = 1847.1
+image_epoch = 2000.0
+axis_inclination_from_los_deg = 41.0
+map_half_width_cm = 3.540156843069356e17
+map_half_width_au = 23664.486843991934
+display_log10_low_g_cm2 = -2.1297090221643566
+display_log10_high_g_cm2 = -1.0051552835816384
+ejection_duration_years = 20.0
+finite_duration_layers = 101
+equatorial_latitude_cutoff_deg = 10.0
+finite_duration_display_log10_low_g_cm2 = -2.3749592209107435
+finite_duration_display_log10_high_g_cm2 = -1.2523143169253603
+near_side_thin_display_log10_low_g_cm2 = -2.4909965059483854
+near_side_thin_display_log10_high_g_cm2 = -1.325141403617416
+near_side_finite_duration_display_log10_low_g_cm2 = -2.7081822994783296
+near_side_finite_duration_display_log10_high_g_cm2 = -1.591518066646336

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Homunculus Figure Registration</title>
+  <style>
+    :root { color-scheme: light; font-family: Arial, sans-serif; }
+    body { margin: 0; background: #ece9e2; color: #181817; }
+    main { display: grid; grid-template-columns: minmax(400px, 1fr) 340px; gap: 24px; max-width: 1280px; margin: 0 auto; padding: 28px; }
+    h1 { grid-column: 1 / -1; margin: 0; font-size: 26px; }
+    .subtitle { grid-column: 1 / -1; margin-top: -16px; color: #56534d; }
+    .canvas-wrap { background: white; border: 1px solid #bdb8ad; padding: 12px; box-shadow: 0 2px 10px #0002; }
+    canvas { display: block; width: 100%; aspect-ratio: 1; cursor: grab; touch-action: none; }
+    canvas.dragging { cursor: grabbing; }
+    .panel { background: #fff; border: 1px solid #bdb8ad; padding: 20px; align-self: start; }
+    .control { margin: 0 0 18px; }
+    .control label { display: flex; justify-content: space-between; font-weight: 600; font-size: 14px; }
+    .control output { color: #a62421; font-variant-numeric: tabular-nums; }
+    input[type="range"] { width: 100%; accent-color: #a62421; }
+    button { border: 0; background: #a62421; color: white; padding: 10px 13px; cursor: pointer; font-weight: 600; margin: 4px 4px 0 0; }
+    button.secondary { background: #4e4b45; }
+    button.active { outline: 3px solid #201f1c; outline-offset: 2px; }
+    .note { border-left: 4px solid #a62421; padding-left: 12px; font-size: 14px; line-height: 1.45; color: #47443f; }
+    @media (max-width: 820px) { main { grid-template-columns: 1fr; padding: 14px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Homunculus Figure Registration</h1>
+    <p class="subtitle">Base: Smith et al. (2003) Figure 4 spectral apertures. Overlay: Figure 2d cool-dust tau at 18 um.</p>
+    <section class="canvas-wrap"><canvas id="canvas" width="900" height="900" aria-label="Interactive figure overlay"></canvas></section>
+    <aside class="panel">
+      <div class="control"><label>View</label><button class="view active" data-view="blend">Blend</button><button class="view secondary" data-view="base">Figure 4 only</button><button class="view secondary" data-view="overlay">Figure 2d only</button></div>
+      <div class="control"><label for="opacity">Optical-depth overlay opacity <output id="opacityValue"></output></label><input id="opacity" type="range" min="0" max="100" value="50"></div>
+      <div class="control"><label for="scale">Overlay scale <output id="scaleValue"></output></label><input id="scale" type="range" min="40" max="150" value="76"></div>
+      <div class="control"><label for="shiftX">Horizontal shift <output id="shiftXValue"></output></label><input id="shiftX" type="range" min="-450" max="450" value="0"></div>
+      <div class="control"><label for="shiftY">Vertical shift <output id="shiftYValue"></output></label><input id="shiftY" type="range" min="-450" max="450" value="0"></div>
+      <button id="reset">Reset</button><button id="save" class="secondary">Save PNG</button>
+      <p class="note">The Figure 2d optical-depth layer starts at 50% transparency. Drag anywhere on the image to shift it; use scale to match the outer Homunculus boundary before fine-tuning the shift.</p>
+    </aside>
+  </main>
+  <script>
+    const canvas = document.querySelector('#canvas');
+    const context = canvas.getContext('2d');
+    const base = new Image();
+    const overlay = new Image();
+    let baseDisplay = base;
+    base.src = 'output/smith_2003_fig4_apertures.png';
+    overlay.src = 'output/smith_2003_fig2d.png';
+    const controls = ['opacity', 'scale', 'shiftX', 'shiftY'].map(id => document.getElementById(id));
+    const defaults = { opacity: 50, scale: 76, shiftX: 0, shiftY: 0 };
+    let dragStart = null;
+    let view = 'blend';
+
+    function fit(image) {
+      const scale = Math.min(canvas.width / image.width, canvas.height / image.height);
+      return { width: image.width * scale, height: image.height * scale, x: (canvas.width - image.width * scale) / 2, y: (canvas.height - image.height * scale) / 2 };
+    }
+    function tintFigure4(image) {
+      const tinted = document.createElement('canvas');
+      tinted.width = image.width;
+      tinted.height = image.height;
+      const tintContext = tinted.getContext('2d');
+      tintContext.drawImage(image, 0, 0);
+      const pixels = tintContext.getImageData(0, 0, tinted.width, tinted.height);
+      for (let index = 0; index < pixels.data.length; index += 4) {
+        const brightness = (pixels.data[index] + pixels.data[index + 1] + pixels.data[index + 2]) / (3 * 255);
+        pixels.data[index] = 120 + 135 * brightness;
+        pixels.data[index + 1] = 18 + 225 * brightness;
+        pixels.data[index + 2] = 18 + 225 * brightness;
+      }
+      tintContext.putImageData(pixels, 0, 0);
+      return tinted;
+    }
+    function value(id) { return Number(document.getElementById(id).value); }
+    function updateLabels() {
+      document.getElementById('opacityValue').textContent = `${value('opacity')}%`;
+      document.getElementById('scaleValue').textContent = `${value('scale')}%`;
+      document.getElementById('shiftXValue').textContent = `${value('shiftX')} px`;
+      document.getElementById('shiftYValue').textContent = `${value('shiftY')} px`;
+    }
+    function draw() {
+      if (!base.complete || !overlay.complete) return;
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      const background = fit(baseDisplay);
+      if (view !== 'overlay') context.drawImage(baseDisplay, background.x, background.y, background.width, background.height);
+      const scale = value('scale') / 100;
+      const baseScale = Math.min(canvas.width / overlay.width, canvas.height / overlay.height) * scale;
+      const width = overlay.width * baseScale;
+      const height = overlay.height * baseScale;
+      const x = (canvas.width - width) / 2 + value('shiftX');
+      const y = (canvas.height - height) / 2 + value('shiftY');
+      if (view !== 'base') {
+        context.save();
+        context.globalAlpha = view === 'overlay' ? 1 : value('opacity') / 100;
+        // White Figure 2d pixels leave the red Figure 4 base visible.
+        context.globalCompositeOperation = view === 'blend' ? 'multiply' : 'source-over';
+        context.drawImage(overlay, x, y, width, height);
+        context.restore();
+      }
+      updateLabels();
+    }
+    controls.forEach(control => control.addEventListener('input', draw));
+    document.querySelectorAll('.view').forEach(button => button.addEventListener('click', () => {
+      view = button.dataset.view;
+      document.querySelectorAll('.view').forEach(item => {
+        item.classList.toggle('active', item === button);
+        item.classList.toggle('secondary', item !== button);
+      });
+      draw();
+    }));
+    canvas.addEventListener('pointerdown', event => {
+      dragStart = { x: event.clientX, y: event.clientY, shiftX: value('shiftX'), shiftY: value('shiftY') };
+      canvas.classList.add('dragging');
+      canvas.setPointerCapture(event.pointerId);
+    });
+    canvas.addEventListener('pointermove', event => {
+      if (!dragStart) return;
+      const rect = canvas.getBoundingClientRect();
+      document.getElementById('shiftX').value = Math.round(dragStart.shiftX + (event.clientX - dragStart.x) * canvas.width / rect.width);
+      document.getElementById('shiftY').value = Math.round(dragStart.shiftY + (event.clientY - dragStart.y) * canvas.height / rect.height);
+      draw();
+    });
+    canvas.addEventListener('pointerup', () => { dragStart = null; canvas.classList.remove('dragging'); });
+    document.getElementById('reset').addEventListener('click', () => { Object.entries(defaults).forEach(([id, current]) => document.getElementById(id).value = current); draw(); });
+    document.getElementById('save').addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.download = 'homunculus-figure-registration.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+    Promise.all([new Promise(resolve => base.onload = resolve), new Promise(resolve => overlay.onload = resolve)]).then(draw);
+  </script>
+</body>
+</html>

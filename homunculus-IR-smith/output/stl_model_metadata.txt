@@ -1,0 +1,16 @@
+stl_triangles = 17101
+symmetry_axis = z
+inclination_from_los_deg = 41.0
+total_mass_msun = 1.0
+ejection_epoch_midpoint = 1847.1
+image_epoch = 2000.0
+ejection_duration_years = 20.0
+finite_duration_layers = 101
+native_pole_radius = 3.810615062713623
+smith_pole_radius_cm = 3.1214840729990406e17
+smith_pole_radius_au = 20865.832236735445
+stl_to_cm_scale = 8.191549189899446e16
+map_half_width_cm = 3.528473112225774e17
+display_log10_low_g_cm2 = -2.799717919887967
+display_log10_high_g_cm2 = -0.6200231269412246
+recovered_projected_mass_msun = 0.9999999999999999
