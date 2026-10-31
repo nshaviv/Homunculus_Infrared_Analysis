@@ -1,0 +1,7 @@
+source = homunculus-IR-smith/v_vs_theta.csv
+surface = central-age two-crossing thin shell
+central_age_years = 152.9000000000001
+inclination_from_los_deg = 41.0
+position_angle_deg = 132.0
+front_pixels = 162878
+back_pixels = 162878
