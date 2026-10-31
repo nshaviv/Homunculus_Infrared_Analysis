@@ -1,0 +1,112 @@
+{
+  "model": {
+    "size_distribution": "dN/da proportional to a^(-slope_q)",
+    "shared_between_regions": true,
+    "tau_is_dictated": true,
+    "likelihood": "Gaussian in log10 flux with the original propagated errors: sigma_F=sqrt((error_fraction*F)^2+background_noise_cgs^2), sigma_log10F=sigma_F/(F*ln(10)); lnL=lnL1+lnL2",
+    "error_fraction": 0.05,
+    "background_noise_cgs": 5e-23,
+    "background_noise_jy": 5.0,
+    "uncertainty_note": "Preserved from the original code; an analysis assumption, not claimed to be Smith's original error treatment",
+    "cross_region_calibration_covariance_included": false,
+    "lambda_reference_micron": 18.0,
+    "tau_region1": 0.3,
+    "tau_region2": 0.1,
+    "composition_mass_fractions": {
+      "silicate": 0.99,
+      "corundum": 0.005,
+      "iron": 0.005
+    }
+  },
+  "data": {
+    "region1": "lobe.edge.data",
+    "region2": "lobeedgedata2",
+    "n_region1": 5,
+    "n_region2": 6
+  },
+  "parameters": {
+    "T_region1_K": {
+      "q16": 151.91830035573537,
+      "median": 152.77577603029744,
+      "q84": 153.64783145624347,
+      "maximum_posterior": 152.97944538846795
+    },
+    "T_region2_K": {
+      "q16": 212.55257848143359,
+      "median": 213.6967185937835,
+      "q84": 214.9063267508634,
+      "maximum_posterior": 214.48952597512184
+    },
+    "a_small_micron": {
+      "q16": 0.16604496045368128,
+      "median": 0.34781542986091735,
+      "q84": 0.6779845724778871,
+      "maximum_posterior": 0.31964646757772813
+    },
+    "a_large_micron": {
+      "q16": 0.9653843688116447,
+      "median": 1.3144115453572511,
+      "q84": 6.012070122910792,
+      "maximum_posterior": 9.493771942960576
+    },
+    "slope_q": {
+      "q16": 2.608527608497703,
+      "median": 4.04714010964112,
+      "q84": 4.756107983955155,
+      "maximum_posterior": 4.997563083687481
+    }
+  },
+  "derived": {
+    "a50_number_micron": {
+      "q16": 0.21546824359881175,
+      "median": 0.4418076281475235,
+      "q84": 0.7878228180192398
+    },
+    "a50_mass_micron": {
+      "q16": 0.51452580801604,
+      "median": 0.7317897058075977,
+      "q84": 0.9041426215311186
+    },
+    "kappa_reference_cm2_g": {
+      "q16": 1178.9714907654088,
+      "median": 1208.2886892467711,
+      "q84": 1233.483344306031
+    },
+    "sigma_region1_g_cm2": {
+      "q16": 0.00024321366103973368,
+      "median": 0.0002482850354147986,
+      "q84": 0.00025445907925043115
+    },
+    "sigma_region2_g_cm2": {
+      "q16": 8.107122034657791e-05,
+      "median": 8.276167847159953e-05,
+      "q84": 8.481969308347706e-05
+    }
+  },
+  "fit_at_maximum_posterior": {
+    "chi2_region1": 102.40695193627644,
+    "chi2_region2": 83.0326495903465,
+    "chi2_total": 185.43960152662294,
+    "degrees_of_freedom": 6,
+    "reduced_chi2": 30.906600254437155,
+    "rms_log10_region1_dex": 0.1584671985954217,
+    "rms_log10_region2_dex": 0.6764724819410673,
+    "log_likelihood_region1": -40.09370028748408,
+    "log_likelihood_region2": -27.105128425752596
+  },
+  "chain_diagnostics": {
+    "walkers": 50,
+    "steps": 25000,
+    "burn": 5000,
+    "thin": 50,
+    "mean_acceptance_fraction": 0.36815760000000003,
+    "autocorrelation_time_steps": [
+      116.33593898864945,
+      131.71565550696235,
+      210.28004082215435,
+      389.1855838460786,
+      281.6466302015401
+    ],
+    "chain_length_at_least_50_tau": true
+  }
+}
